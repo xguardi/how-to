@@ -1,0 +1,52 @@
+= General
+
+- Shortcut for the pipe operator in RStudio
+Ctrl-Shift-M
+
+- The %in% operator
+> "a" %in% c("a","b","c")
+
+>= Packages
+
+- Generate roxygen documentation
+> devtools::document()
+
+- Browse all Vignettes from the installed packages from localhost (no need to be online!)
+> browseVignettes()
+
+- Sometimes devtools::install_git has credential problems. In that case we need to explicitly pass the credentials:
+devtools::install_git("https://github.int.midasplayer.com/STO-BPU/aggrigatoR", credentials = git2r::cred_user_pass(username = "xavier.guardiola", password = "XXX"))
+
+= dplyr
+
+http://www.brodrigues.co/blog/2017-06-19-dplyr-0-70-tutorial/
+
+- Standard ifelse drops date classes and factor levels
+
+Something like x = ifelse(!is.na(start_date), start_date, start_date + 1) makes x a double. To prevent this (expected) behaviour we can use dplyr's alternative: if_else() that keeps the class.
+
+- Case when (switch)
+> mtcars %>% 
+  mutate(cg = case_when(carb <= 2 ~ "low",
+                        carb > 2  ~ "high"))
+
+- Apply a function row by row:
+> data %>%
+> rowwise() %>%
+> mutate(x = function(y))
+
+- Normalise all values with the first 
+data_funnel %>%
+  mutate(perc = players / players[stage == 'Assigned'])
+
+= ggplot2
+
+- If we want the plot to include the 0 without having to explicit the limits (as in c(0, max(smtg)). We can do it in two ways: either:
+> + geom_hline(yintercept = 0)
+or
+> + expand_limits(y = 0)
+
+# Quotes! :-D
+
+R doesn’t stop you from shooting yourself in the foot, but as long as you don’t aim the gun at your toes and pull the trigger, you won’t have a problem.
+(Advanced R)

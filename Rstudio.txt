@@ -1,0 +1,42 @@
+# R studio shortcuts and misc tips
+
+### Go to file/function
+CTRL + .
+or
+F2 on top of the function name
+
+### Find in files
+Search under a file tree for matches in the files
+CTRL + SHIFT + f
+
+### Navigate the path
+Whenever we write some "" and automcomplete, we will navigate through the filesystem (and can use ..) and quickly locate and reference a file.
+
+### Folding
+cmd-alt-L         collapse
+shift-cmd-alt-L   expand
+cmd-alt-O         collapse all
+shift-cmd-alt-O   expand all
+
+### Notebooks
+- Previewing the document as html_document is not the same as knitting it. It simply generates an html version of what you already have in the notebook.
+- Using SQL chunks. In the options you can pass the conn and the R object that is going to hold the results. The params are passed as ?param in the SQL code. And are any R variable previously defined. 
+TODO: Try with HIVE and odbc please! and impala as well :-D
+
+### Fuzy search
+- When autocompleting you can tipe the letters not necesearily consecutive (example 'insh' >> 'install_github').
+
+### Console history
+- When typing on the console, cmd-up shows all history commands that match what you have already typed. Never write things twice!
+
+### Visualise jsons
+> devtools::install_github("hrbrmstr/jsonview")
+> library(jsonview)
+> json_view(r)
+> json_tree_view(r)
+
+### Java stuff
+Sometimes there are synch problems with Java (failure to load rJava package for example). Most of them are solved by simply:
+$ R CMD javareconf
+
+

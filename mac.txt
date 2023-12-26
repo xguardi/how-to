@@ -1,0 +1,4 @@
+# Apple Mact tips and how-to
+
+# Sound not working
+Got to the Monitor and kill the process 'coreaudiod'. It will respawn.
